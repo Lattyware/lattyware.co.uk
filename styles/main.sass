@@ -1,0 +1,168 @@
+---
+---
+@charset "utf-8"
+
+$background-color: #1f1f1f
+$foreground-color: #dddddd
+$accent-color: #ac44b7
+$link-color: #565ebf
+$line-color: lighten($background-color, 10%)
+
+$general-spacing: 20px
+
+@import "source-sans-pro"
+
+html.light
+  color: $background-color
+
+  body
+    background-color: #ffffff
+
+html
+  font-family: "Source Sans Pro", sans-serif
+  background-color: #333333
+  background-image: url("/images/congruent_outline.png")
+  color: $foreground-color
+  font-size: 1.8em
+  font-weight: 300
+
+a
+  color: $link-color
+  text-decoration: none
+
+p
+  margin: $general-spacing 0px 0px 0px
+
+h1
+  font-weight: 600
+
+body
+  background-color: $background-color
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2)
+  width: 800px
+  padding: $general-spacing
+  margin: $general-spacing auto $general-spacing auto
+
+header
+  h1
+    width: 510px
+    margin: 0px auto 0px auto
+    padding: 0px 0px 10px 0px
+
+    img
+      width: 510px
+      height: 135px
+
+nav#menu ul
+  display: flex
+  justify-content: space-around
+  list-style: none
+  margin: 0px
+  padding: $general-spacing 0px $general-spacing 0px
+  border-top: 1px solid $line-color
+  border-bottom: 1px solid $line-color
+
+  li
+    display: inline
+
+    &.current
+      font-weight: 600
+
+main
+  margin: 0px 0px $general-spacing 0px
+
+  .title
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: baseline
+
+    h1
+      margin: $general-spacing $general-spacing 0px 0px
+
+  section h1
+    margin: $general-spacing 0px $general-spacing 0px
+
+  #posts
+    list-style: none
+    padding: 0px
+    margin: $general-spacing 0px 0px 0px
+
+    .summary
+      border: 1px solid $line-color
+      padding: 5px 10px 10px 10px
+      margin: 0px 0px $general-spacing 0px
+
+      .about
+        display: flex
+        justify-content: space-between
+        align-items: baseline
+
+        a
+          font-weight: 600
+          font-size: 1.2em
+
+        time
+          font-size: 0.8em
+
+      p
+        font-style: italic
+        border-left: 3px solid $line-color
+        margin: 0px
+        padding: 0px 0px 0px $general-spacing
+
+.content img
+  display: block
+  margin: 0px auto 0px auto
+
+.about
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 5px
+
+  img
+    width: 80px
+    height: 80px
+    border-radius: 50%
+    margin-right: $general-spacing
+
+  .date-published
+    font-size: 0.8em
+
+.pagination
+  margin: 0px
+  display: flex
+  justify-content: space-between
+
+.subscribe-link
+  flex-grow: 1
+  text-align: right
+
+.more-posts-link
+  text-align: right
+
+.page-links
+  display: flex
+
+  .page-link
+    display: block
+    border: 1px solid $line-color
+    margin: 0px 5px 0px 5px
+    width: 20px
+    text-align: center
+
+#style-button
+  position: fixed
+  top: 0px
+  right: 0px
+  border: 1px solid #000000
+  border-top: 0px
+  border-right: 0px
+  background-color: 1px solid #ffffff
+  color: #000000
+  border-bottom-left-radius: 5px
+
+footer
+  font-size: 0.7em
+  border-top: 1px solid $line-color

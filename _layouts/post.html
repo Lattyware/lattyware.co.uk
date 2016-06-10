@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+    <head>
+      {% include head.html %}
+
+      <link href="/blog/feed.xml" rel="home" type="application/rss+xml" title="{{ site.title }}" />
+    </head>
+    <body>
+      {% include header.html %}
+
+      {% include nav.html %}
+
+      <button id="style-button" onclick="document.documentElement.classList.toggle('light');" type="button">
+        Change Colours
+      </button>
+
+      <main class="post">
+        <article>
+          <div class="title">
+            <h1>{{ page.title }}</h1>
+            <span class="description">{{ page.description }}</span>
+          </div>
+          <div class="about">
+            <img src="/images/me.jpg" alt="A portrait photograph of Gareth Latty.">
+            <div>
+              <address class="byline">By <a href="/contact/" rel="author">Gareth Latty</a></address>
+              <span class="date-published">Published <time datetime="{{ page.date | date_to_xmlschema }}" class="date">{{ page.date | date_to_string }}</time></span>
+            </div>
+          </div>
+          <section class="content">
+            {{ page.content }}
+          </section>
+        </article>
+
+        <p class="more-posts-link"><a href="/blog/"><i class="fa fa-pencil" aria-hidden="true"></i> More Posts...</a></p>
+      </main>
+
+      {% include footer.html %}
+    </body>
+</html>

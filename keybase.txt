@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/latty
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.lattyware.co.uk
+  * I am latty (https://keybase.io/latty) on keybase.
+  * I have a public key with fingerprint F7BD 4B04 68F0 9785 C9FF  7BC1 7713 4C7D 35D5 02F2
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101baea2ee9761d1988a7a88e98e6a0bd97102000c1a1833d66118df214e7df0c0d0a",
+            "fingerprint": "f7bd4b0468f09785c9ff7bc177134c7d35d502f2",
+            "host": "keybase.io",
+            "key_id": "77134c7d35d502f2",
+            "kid": "0101baea2ee9761d1988a7a88e98e6a0bd97102000c1a1833d66118df214e7df0c0d0a",
+            "uid": "49da306bafd28efcc533a792811c8219",
+            "username": "latty"
+        },
+        "service": {
+            "hostname": "www.lattyware.co.uk",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1442947691,
+    "expire_in": 157680000,
+    "prev": "3679a9b78ec4aa674e1212126d6044fa112f161eb687cf305687655fb57de340",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.46
+Comment: https://keybase.io/crypto
+
+yMIpAnicrVJdSFRBGF37NUvqQWlJw7hW9GDbzP2ZmbslRUaBDxJJf/azzb0zV2/a
+3vXu1W0xlSijeuhNEoyiIK0IAguTMEkJpHoINLNCswihFyOsh8xcmrvUW48xDx9z
+5pwz5/v4nmbPD2Rl9C2aODp0pGlnxov+9rrAvowb1Q2S4bCkFG6Qqnm68BrG416k
+2mZSWAIQQINyKnOuYwQZ1AmhmBLCdcIRBQbTMQQyAMCEFBJFYQhBSJglQ5VjZgET
+MEClIsmyo5Xcjbl21BO2FjaYagAVEQvomGimbgnIhBhDRTUxUzSmAdmShbDKifsK
+Ec6gcR6yHYGJSyQd7x/8/5y7Lm2n6owqABnUYjLhlmlqikKxLhMITSJD3SfGuRul
+J7hg11DPS0qNRZKA6m2T+1P12/jznEgkQmlKgro8ZDqhumqhj7mO55hOjSBUeV4s
+HvYNvGQsreBG5I9XxLCjTMxSKOq5G7edqBSGgml6tm8OVVXWVYx0WCTxkzHb5RHb
+Z2gYEdEs8P/h9cJSQVinuoEJN1VKEVY5lP2DGAKqalEIZQsiyA1EsGkpQBMVaZpl
+aJhxRQWS311t1JHCmohJK4Vl3K6MUq/O5VLjwJPDCwIZWYFFC+f5OxbIWrLi7+bt
+VBen1MPbJrMm4ekk6n1vbD02nNtTfCvSOtj+ssfY9XNTfsGjpRvq83Jaz2b33ywP
+9Ba2PJxI7Rgdjjy7OnIX2NqyN1ty7Ovvs7uGRqd7jwbC6191/Pp259mai8vcJ/0D
+be8GUutWX8lcC1vIxtTrr035k7O3P46FLg88GK9qPbdct4JjRsWCTbVKyb2Z7rLO
+lQW7Tzxvm9g/V/Zj/OCl0mule0nDt8KKdSxYfHrvgbJY99zUPjSz+fznvuau+J77
+56pyvhx/0TznJoM3Hh/a3ZV63hFcNXJ+trAlMdjc/qG8p3s60XGmc+rxp+8fL+Ru
+z4OnSmoyT/UFCkteNrYFZ94ub6i4XPobqcJDMQ==
+=kGFi
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/latty
+
+==================================================================

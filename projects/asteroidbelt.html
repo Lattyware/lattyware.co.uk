@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+	<head>
+		<title>Asteroid Belt</title>
+
+		<meta charset="UTF-8">
+
+		<link rel="icon" type="image/png" href="/assets/icon.png" />
+		<link rel="stylesheet" type="text/css" href="/projects/projects.css" />
+	</head>
+	<body>
+		<h1>Asteroid Belt - Lattyware's Ludum Dare #23 entry.</h1>
+
+		<p>This is a small project by <a href="http://www.lattyware.co.uk">Gareth Latty</a> (Lattyware).</p>
+		<p><a href="/projects/">Other projects</a>.</p>
+
+<p>This is my entry for Ludum Dare #23 - Asteroid Belt, a game on the theme of
+'Tiny World' produced in 48 hours.</p>
+
+		<h2>Get it:</h2>
+
+		<p>Download:</p>
+		<p>Source: <a href="/projects/asteroidbelt-src.zip">asteroidbelt-src.zip</a> md5sum: 8881dd1c7a67608322c5c6114be9c1cf, or get it from <a href="https://github.com/Lattyware/asteroidbelt">the github project</a>.</p>
+        <p>Linux: <a href="/projects/asteroidbelt-linux.zip">asteroidbelt-linux.zip</a> md5sum: 5bb449aee53ac5676f7ac9a9f66cc6a0.</p>
+		<p>Windows: <a href="/projects/asteroidbelt-win.zip">asteroidbelt-win.zip</a> md5sum: a31388ec8ee643da5097f06c0bbdd164.</p>
+
+<h2>Gameplay</h2>
+<p>You play as a man fed up of living on an asteroid, find your way to the edge
+of the asteroid belt, and to a real planet.</p>
+<h2>What was going to be the gameplay</h2>
+<p>You play as a race of people living on an asteroid belt. While you manage to
+survive, the lack of natural resources and the small asteroids make for poor
+living conditions. You look towards a habitable planet in your solar system,
+where you can settle.</p>
+<p>Your aim is to build a spaceship and fly there, however, to be successful you
+will need to build your spaceship from resources scattered across asteroids,
+clear a path through the asteroids for it, and aim it correctly.</p>
+<p>Asteroids contain a number of resources. Your home planet contains no resources,
+as they have been consumed by past generations of your people. All that remains
+is the rocket pad you have built. Other asteroids contain a variety of
+resources:</p>
+<ul>
+<li>Water - Used to grow food and sustain your people.</li>
+<li>Oil - Used to make plastics. </li>
+<li>Uranium - Used to produce power.</li>
+<li>Aluminium - Used to make light metalic items.</li>
+<li>Titanium - Used to make strong metalic items.</li>
+</ul>
+<p>You will begin with meagre stockpiles of these resources, allowing you to build
+a variety of items to get to, and interact with asteroids:</p>
+<ul>
+<li>Drill - Used to get to resources.</li>
+<li>Push - Used to move an asteroid.</li>
+<li>Nuclear Bomb - Used to destroy an asteroid.</li>
+</ul>
+<p>Watch out - asteroids are inherantly unstable, and you only collect resources
+from asteroids which are connected to your home asteroid. Good luck!</p>
+<h2>Notes</h2>
+<p>Well, at the last minute the gameplay mechnaics fell apart - a lot of the
+gameplay for the actual game is done, but not enough to be playable, so I
+canibalised it into this. It's nothing great, but it is technically a game.</p>
+<p>As usual, this isn't as polished as I'd like - 48 hours is not a long time, so
+please don't judge me too harshly. Likewise, the code isn't as elegant or well
+documented as I'd like - but this is to be expected.</p>
+<p>I switched to pyglet from sfml2 for this due to sfml2 not being very easy to
+install as a dependancy - it all requires compiling from git repos, and the
+python bindings require cython - it becomes a big pain, so I decided to use
+something else until they are ready. Still like SFML, it's a great library, but
+it's simply not as easy to distribute. Unfortunately this means I'm stuck on
+Python 2.x, when I'd rather be on 3.x, but so it goes.</p>
+<p>I also decided to use pymunk for physics - I hadn't used it before, but it's a
+nice library - if a little sparse in the documentation.</p>
+<h2>Requirements:</h2>
+<ul>
+<li><a href="http://www.python.org/">Python 2.7.3</a></li>
+<li><a href="http://www.pyglet.org/">pyglet 1.1.4</a></li>
+<li><a href="https://code.google.com/p/pymunk/">pymunk 2.1.0</a></li>
+</ul>
+<h2>Usage:</h2>
+<p>If you want to play the game only, I highly advice getting a binary version of
+the game from <a href="http://www.lattyware.co.uk/projects/ld23">my website</a>. These have
+the dependancies packaged with them, and are easier to simply get and play. Then
+simply run the executable. Under linux, simply check the executable bit has been
+set (<code>chmod +x ld23</code>) and then do <code>./ld23</code>. Under Windows double click
+<code>ld23.exe</code>.</p>
+<p>To run the game from source, run <code>main.py</code> with Python. Under most linux
+distributions, simply <code>python2 main.py</code> or <code>python main.py</code> depending on what
+the main version of python for your distribution is. Under windows, you will
+probably need to add python to your system path - see <a href="http://docs.python.org/faq/windows.html#how-do-i-run-a-python-program-under-windows">the official python
+documentation</a>
+for more.</p>
+<h2>Author:</h2>
+<ul>
+<li>Name: Gareth Latty</li>
+<li>Email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#97;&#114;&#101;&#116;&#104;&#64;&#108;&#97;&#116;&#116;&#121;&#119;&#97;&#114;&#101;&#46;&#99;&#111;&#46;&#117;&#107;">&#103;&#97;&#114;&#101;&#116;&#104;&#64;&#108;&#97;&#116;&#116;&#121;&#119;&#97;&#114;&#101;&#46;&#99;&#111;&#46;&#117;&#107;</a></li>
+<li>Website: <a href="http://www.lattyware.co.uk">http://www.lattyware.co.uk</a></li>
+<li>Twitter: <a href="https://twitter.com/#!/lattyware">@lattyware</a></li>
+<li>Blog: <a href="http://blog.lattyware.co.uk">http://blog.lattyware.co.uk</a></li>
+</ul>
+<p>Please feel free to contact me, I'm always happy to hear from people.</p>
+<h2>Things I Used:</h2>
+<ul>
+<li>
+<p><a href="http://www.jetbrains.com/pycharm/">PyCharm</a> as my IDE. It's a great
+Python IDE, and while Python, as a language, does a great job at reducing the
+need for an IDE, PyCharm fills in the gaps most text editors don't - good
+project management, SCM integration, refactoring tools, etc... If you are
+looking for a Python IDE, I reccomend it.</p>
+</li>
+<li>
+<p><a href="https://www.archlinux.org/">Arch Linux</a> is my operating system of choice.
+Great distro if you want a lot of control over your system.</p>
+</li>
+</ul>
+<h2>Licence:</h2>
+<p>Copyright © 2012: Gareth Latty <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#97;&#114;&#101;&#116;&#104;&#64;&#108;&#97;&#116;&#116;&#121;&#119;&#97;&#114;&#101;&#46;&#99;&#111;&#46;&#117;&#107;">&#103;&#97;&#114;&#101;&#116;&#104;&#64;&#108;&#97;&#116;&#116;&#121;&#119;&#97;&#114;&#101;&#46;&#99;&#111;&#46;&#117;&#107;</a></p>
+<p>This game's source code is provided under the GPLv3 licence, see LICENCE or
+<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a> for more.</p>
+<p>All other assets are provided under a
+Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) licence -
+see <a href="https://creativecommons.org/licenses/by-sa/3.0/">https://creativecommons.org/licenses/by-sa/3.0/</a>.</p>
+
+	</body>
+</html>

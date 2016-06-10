@@ -1,0 +1,84 @@
+---
+date: 2016-04-27T18:40:52+01:00
+description: My thoughts.
+title: Blog
+icon: pencil
+in-menu: true
+menu-position: 1
+---
+<!doctype html>
+<html lang="{{ site.language }}">
+    <head>
+      {% include head.html %}
+
+      <link href="/blog/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.title }}" />
+    </head>
+    <body>
+      {% include header.html %}
+
+      {% include nav.html %}
+
+      <main class="page">
+        <div class="title">
+          <h1>{{ page.title }}</h1>
+          <span class="description">{{ page.description }}</span>
+          <a class="subscribe-link" href="/blog/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.title }}">
+            <i class="fa fa-rss" aria-hidden="true"></i> Subscribe
+          </a>
+        </div>
+        <section class="content">
+          <ol id="posts">
+            {% for post in paginator.posts %}
+              <li class="summary">
+                <div class="about">
+                  <a href="{{ post.url }}" title="{{ post.description }}">{{ post.title }}</a>
+                  <time datetime="{{ post.date | date_to_xmlschema }}" class="date">{{ post.date | date_to_string }}</time>
+                </div>
+                {{ post.excerpt }}
+              </li>
+            {% endfor %}
+          </ol>
+          <div class="pagination">
+            {% if paginator.previous_page %}
+              <a href="{{ paginator.previous_page_path }}" class="newer" title="Newer posts."><i class="fa fa-fw fa-backward" aria-hidden="true"></i></a>
+            {% else %}
+              <span title="There are no newer posts."><i class="fa fa-fw fa-backward" aria-hidden="true"></i></span>
+            {% endif %}
+            <div class="page-links">
+              {% if paginator.page == 1 %}
+                <span href="/blog/" class="page-link">1</span>
+              {% else %}
+                <a href="/blog/" class="page-link">1</a>
+              {% endif %}
+              {% assign before_last = paginator.total_pages | minus: 1 %}
+              {% for i in (2..before_last) %}
+                {% assign lower = paginator.page | minus: 2 %}
+                {% assign upper = paginator.page | plus: 2 %}
+                {% if i >= lower and i <= upper %}
+                  {% if paginator.page == i %}
+                    <span class="page-link">{{ i }}</span>
+                  {% else %}
+                    <a href="/blog/page{{ i }}" class="page-link">{{ i }}</a>
+                  {% endif %}
+                {% else %}
+                  <span>...</span>
+                {% endif %}
+              {% endfor %}
+              {% if paginator.page == paginator.total_pages %}
+                <span href="/blog/page{{ paginator.total_pages }}/" class="page-link">{{ paginator.total_pages }}</span>
+              {% else %}
+                <a href="/blog/page{{ paginator.total_pages }}/" class="page-link">{{ paginator.total_pages }}</a>
+              {% endif %}
+            </div>
+            {% if paginator.next_page %}
+              <a href="{{ paginator.next_page_path }}" class="older" title="Older posts."><i class="fa fa-fw fa-forward" aria-hidden="true"></i></a>
+            {% else %}
+              <span title="There are no older posts."><i class="fa fa-fw fa-forward" aria-hidden="true"></i></span>
+            {% endif %}
+          </div>
+        </section>
+      </main>
+
+      {% include footer.html %}
+    </body>
+</html>

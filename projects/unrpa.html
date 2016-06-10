@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+	<title>unrpa</title>
+		<meta name="author" content="Gareth Latty (Lattyware)"/>
+		<meta name="keywords" content="unrpa,ren'py,unarchive" />
+		<meta name="description" content="A script to extract files from a Ren'Py archive."/>
+		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<style type="text/css">
+		    table {
+			    border: 1px solid #000000;
+		    }
+		    th {
+			    font-weight: bold;
+			    border: 1px solid #000000;
+		    }
+		    .section {
+			    text-align: right;
+		    }
+		    .option {
+			    font-weight: bold;
+		    }
+		    td {
+			    border: 1px solid #000000;
+		    }
+    	</style>
+	</head>
+	<body>
+		<h1>unrpa</h1>
+		<p>This is a small project by <a href="http://www.lattyware.co.uk">Gareth Latty</a> (Lattyware).</p>
+		<p><a href="/projects/">Other projects</a>.</p>
+		<h2>About:</h2>
+		<p>Unrpa is a script to extract files from archives created for the <a href="http://www.renpy.org/">Ren'Py Visual Novel Engine</a>.</p>
+		<h2>Comments:</h2>
+		<p>If you have any comments on the script, feel free to <a href="mailto:gareth@lattyware.co.uk">e-mail me</a>. I'm always happy to hear about bugs, suggestions, praise, or even flames - whatever floats your boat.</p>
+		<p>While creating this script, I unexpectedly <a href="http://blog.lattyware.co.uk/post/13747269145/unrpa-the-rpa-archive-format-extracting-files-from">stumbled into e-politics</a> which you can read about by following the link.</p>
+		<h2>Get it:</h2>
+		<p>The latest version is <a href="https://github.com/Lattyware/unrpa/releases/tag/1.4.1">unrpa 1.4.1</a>. You will need Python 2.x to run it.</p>
+		<p>Arch Linux users can install <a href="https://aur.archlinux.org/packages.php?ID=50916">a pkgbuild from the AUR</a>.</p>
+		<p>You can also check the source out on <a href="https://github.com/Lattyware/unrpa">github</a>.</p>
+		<h2>Common Problems</h2>
+		<p>You need to use <em>Python 2.x</em>, not Python 3.x - the latter is not compatible with the former and won't work. If you get the error <blockquote>TypeError: startswith first arg must be bytes or a tuple of bytes, not str</blockquote> this is your problem. (You can have both versions installed at once.). 2.7.2 should be fine.</p>
+        <h2>Usage:</h2>
+        <p>In simple terms you want 'python unrpa -m -p /path/to/extract/to /file/to/extract.rpa'. Most Linux distos should do it perfectly. If Python 3.x is the default version of Python (as in Arch Linux), then use 'python2' instead of 'python'.</p>
+        <p>Under Windows, you want (into cmd.exe, the command prompt, in the unrpa directory) 'C:\PATH\TO\python.exe unrpa -m -p C:\path\to\extract\to C:\file\to\extract.rpa'.</p>
+        <p>Under windows the standard install path for python is 'C:\Python27\python.exe'.</p>
+        <table>
+            <tr><th>Option</th><th>Description</th></tr>
+            <tr><td>--version</td><td>show program's version number and exit</td></tr>
+            <tr><td>-h, --help</td><td>show a help message and exit</td></tr>
+            <tr><td>-v, --verbose</td><td>explain what is being done [default]</td></tr>
+            <tr><td>-s, --silent</td><td>make no output</td></tr>
+            <tr><td>-l, --list</td><td>only list contents, do not extract</td></tr>
+            <tr><td>-p PATH, --path=PATH</td><td>will extract to the given path</td></tr>
+            <tr><td>-m, --mkdir</td><td>will make any non-existant directories in extraction path</td></tr>
+            <tr><td>-f VERSION, --force=VERSION</td><td>forces an archive version. May result in failure</td></tr>
+        </table>
+        <p>Usage: unrpa [options] pathname</p>
+	</body>
+</html>

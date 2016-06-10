@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+	<head>
+		<title>wordgenerator</title>
+
+		<meta charset="UTF-8">
+
+		<link rel="icon" type="image/png" href="/assets/icon.png" />
+		<link rel="stylesheet" type="text/css" href="/projects/projects.css" />
+		<link rel="stylesheet" type="text/css" href="/projects/pygments.css" />
+	</head>
+	<body>
+		<h1>wordgenerator.py v1.2</h1>
+
+		<p>This is a small project by <a href="http://www.lattyware.co.uk">Gareth Latty</a> (Lattyware).</p>
+		<p><a href="/projects/">Other projects</a>.</p>
+
+		<p>A generator for word-like strings that follow the 'feel' of a given input
+		language.</p>
+		<p>It's useful for, for example, naming procedurally generated content
+		in a way that avoids real words, but remains easy to pronounce.</p>
+
+		<h2>Example output:</h2>
+		<p>Here is some example output with the default british-english output:
+		</p>
+		<p>./wordgenerator.py british-english -n 20 --min 5 --max 15<p>
+		<ul>
+			<li>fanglas</li>
+			<li>freering</li>
+			<li>oxyger</li>
+			<li>jubbensetrier</li>
+			<li>amenet</li>
+			<li>moquiets</li>
+			<li>mystilaxation</li>
+			<li>consutey</li>
+			<li>untive</li>
+			<li>masestes</li>
+			<li>curchers</li>
+			<li>anchottollon</li>
+			<li>filles</li>
+			<li>symborse</li>
+			<li>prasting</li>
+			<li>protithest</li>
+			<li>weeloats</li>
+			<li>dupliquding</li>
+			<li>autobency</li>
+			<li>proscolicends</li>
+		</ul>
+		<p>Using a dictionary of italian words, for example, produces
+		italian-sounding words:</p>
+		<p>./wordgenerator.py italian -n 10 --min 5 --max 15<p>
+		<ul>
+			<li>impiate</li>
+			<li>aliersi</li>
+			<li>inaudartererai</li>
+			<li>ottardiscrerei</li>
+			<li>addoluccio</li>
+			<li>deredicassella</li>
+			<li>coibinarei</li>
+			<li>impresto</li>
+			<li>accreste</li>
+			<li>storano</li>
+		</ul>
+		<p><strong>Warning:</strong> This library does no checking on the
+		produced words. They may be real words, and there is the
+		<em>possibility</em> of it generating profanity. If this is
+		unacceptable, then filter the output of this script, or pre-generate a
+		set of words to use which you check. You have been warned.</p>
+
+		<h2>Requirements:</h2>
+
+		<ul>
+			<li><a href="http://www.python.org/">Python</a> - now works with 2.x and 3.x!</li>
+		</ul>
+
+		<h2>Get it:</h2>
+
+		<p>Download:</p>
+		<p>Release: <a href="https://github.com/Lattyware/wordgenerator/releases/tag/1.2.0">wordgenerator 1.2.0</a>,
+			 or clone <a href="https://github.com/Lattyware/wordgenerator">the github project</a>.</p>
+
+		<h2>Usage:</h2>
+
+		<p>This program functions both as a library and a command line application.</p>
+
+		<p>You will need a dictionary to use this program - a newline delimited list of
+		words to use as a source. Surprisingly good results can be obtained from very
+		small input dictionaries, but best results will be gained from a good, varied
+		selection from the language you wish to emulate. Linux users will often find
+		good samples in /usr/share/dict. british-english - distributed with this, is
+		taken from Arch Linux's
+		<a href="https://www.archlinux.org/packages/community/any/words/">words package</a>, and
+		the associated wbritish.copyright is taken from the same package and provides
+		information on copyright with regards to that file.</p>
+
+		<p>Saving as JSON means that you don't need to do the expensive parsing of the
+		dictionary again, and with large dictionaries will produce smaller files. If you
+		intend to use the generator with the same input dictionary multiple times, doing
+		this is highly reccomended.</p>
+
+		<h3>As a command line application:</h3>
+
+		<p>For usage as a command line application, see the below explanation of arguments:</p>
+
+<pre><code>
+usage: wordgenerator.py [-h] [-w BOOL] [-n N] [--min N] [-m N] [-s FILE] [-o]
+                        [-l FILE] [--version]
+                        [FILE]
+
+positional arguments:
+FILE                  The path to a dictionary file for a language - a list
+                      of newline separated words. (default: read from
+                      standard input)
+
+optional arguments:
+-h, --help            show this help message and exit
+-w BOOL, --weighted BOOL
+                      If true, a common segment in the language ismore
+                      likely to show up in an output word. (default: True)
+-n N, --number N      The number of words to generate. (default: 1)
+--min N               The minimum length of words to generate. (default: 0)
+-m N, --max N         The rough maximum length of words to generate.
+                      (default: 14)
+-s FILE, --save FILE  Save the library to disc as JSON data. When saving,
+                      other operations will be ignored.
+-o, --output          Save the library, sending output to the standard
+                      output.
+-l FILE, --load FILE  Load the library from JSON data on disc.
+--version             show program's version number and exit
+</code></pre>
+
+		<h3>As a library:</h3>
+
+		<p>Example usage:</p>
+
+<div class="hlcode">
+<div class="syntax"><pre><span class="kn">from</span> <span class="nn">wordgenerator</span> <span class="kn">import</span> <span class="n">WordGenerator</span>
+
+<span class="n">generator</span> <span class="o">=</span> <span class="n">WordGenerator</span><span class="p">(</span><span class="s">&quot;british-english&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">generator</span><span class="o">.</span><span class="n">generate</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">10</span><span class="p">):</span> <span class="c">#Generate 10 words of length 10-15.</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;british-english.json&quot;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+	<span class="n">generator</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span> <span class="c">#Save the dictionary to a JSON file for quick usage later.</span>
+</pre></div>
+</div>
+
+<div class="hlcode">
+<div class="syntax"><pre><span class="kn">from</span> <span class="nn">wordgenerator</span> <span class="k">import</span> <span class="n">WordGenerator</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">islice</span>
+
+<span class="n">generator</span> <span class="o">=</span> <span class="n">WordGenerator</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;british-english.json&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+	<span class="n">generator</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="c">#Load from JSON.</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">islice</span><span class="p">(</span><span class="n">generator</span><span class="p">,</span> <span class="mi">25</span><span class="p">):</span> <span class="c">#Get 25 words.</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+
+		<h2>Authors:</h2>
+
+		<ul>
+		<li>Gareth Latty <a href="mailto:gareth@lattyware.co.uk">gareth@lattyware.co.uk</a>
+		</li>
+		</ul><h2>Licence:</h2>
+
+		<p>Copyright © 2012: Gareth Latty <a href="mailto:gareth@lattyware.co.uk">gareth@lattyware.co.uk</a></p>
+
+		<p>This script is provided under the GPLv3 licence, see LICENCE  or
+		<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a> for more.</p></div>
+
+	</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>G15Highlighter</title>
+			<meta name="author" content="Gareth Latty (Lattyware)"/>
+			<meta name="keywords" content="G15Highlighter,G15,G15Tools,Linux,xChat" />
+			<meta name="description" content="The G15Highlighter Python Script For xChat Under Linux."/>
+			<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+			<meta http-equiv="content-style-type" content="text/css" />
+			<style type="text/css">
+			table {
+				border: 1px solid #000000;
+			}
+			th {
+				font-weight: bold;
+				border: 1px solid #000000;
+			}
+			.section {
+				text-align: right;
+			}
+			.option {
+				font-weight: bold;
+			}
+			td {
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>G15Highlighter</h1>
+		<p>This is a small project by <a href="http://www.lattyware.co.uk">Gareth Latty</a> (Lattyware).</p>
+		<p><a href="/projects/">Other projects</a>.</p>
+		<h2>About:</h2>
+		<p>G15Highlighter is a python script by Lattyware for the Logitech G15 Keyboard and xChat. It displays any messages that highlights you in xChat on the G15's screen. The script is highly customisable, licenced under the GPL V3 and easy to use. The script will work as distributed, but you can customise the way it works via the configuration file (see further down the page for example configurations and explanations of each option).</p>
+		<h2>Some images of what it looks like in-use:</h2>
+		<p><a href="/projects/large1.jpg"><img src="/projects/small1.jpg" alt="A view of the start up splash." /></a></p>
+		<p><a href="/projects/large2.jpg"><img src="/projects/small2.jpg" alt="A view of a highlight." /></a></p>
+		<h2>Comments:</h2>
+		<p>If you have any comments on the script, feel free to <a href="mailto:info@lattyware.co.uk">e-mail me</a>. I'm always happy to hear about bugs, suggestions, praise, or even flames - whatever floats your boat. Please contact me if you have a custom configuration that you wish to share, or a modification you have made to the script.</p>
+		<h2>Mandriva Issue:</h2>
+		<p>I have been informed the script does not work with Mandriva 2008 spring edition's packages of g15tools (along with other scripts), but works when you compile from source.</p>
+		<blockquote><p>I was also having problems with g15macro, and after messing around a bit I found my Thunderbird script was failing too.  The only difference between my old setup and my new setup when upgrading to 2008 spring edition was that 2008 spring had the g15daemon stuff in it's RPM repository so I didn't have to build it from source.  I uninstalled the RPMs and rebuilt the entire suite from source using the ./configure options I used to use, and everything works fine now.  I'm guessing Mandriva didn't build their RPMs with --enable-ttf.  I honestly don't know why that would cause relatively simple scripts that don't use ttf on composer to fail though.</p></blockquote>
+		<p>Thanks to Frozen for the heads-up.</p>
+		<h2>Get it:</h2>
+		<p>The latest version is 2.6 - 	<a href="/projects/G15H.tar.gz">[name:G15H.tar.gz] - [size:19.151KB] - [md5sum:5e37c146057f6e1c8945c799800247fa]</a>. You will need xChat, Python and <a href="http://sourceforge.net/projects/g15tools/">G15Tools</a> To install, extract into your xChat home directory (usually '~/.xchat2'). More in the readme.</p>
+		<p>Or you can check out <a href="https://github.com/Lattyware/g15highlighter">the project on github</a>.</p>
+
+		<h2>Commands:</h2>
+		<p>/clearlcd - Clear the screen (see options for more.)</p>
+		<p>/reloadg15prefs - Reload your preferences.</p>
+		<h2>Config:</h2>
+		<p>
+			See the two example configs, <a href="/projects/defaults.txt">defaults.txt</a> and <a href="/projects/altconfig.txt">altconfig.txt</a>.
+		</p>
+		<p>
+			The config is formatted as so:<br />
+			Comments: <code>#comment</code><br />
+			Options: <code>option: value</code><br />
+			option and value can be anything as listed below.
+		</p>
+		<table>
+			<tr>
+				<th>Option</th>
+				<th>Possible Value</th>
+				<th>Value Meaning</th>
+				<th>Notes</th>
+			</tr>
+			<tr>
+				<td class="section" colspan="4">Formatting</td>
+			</tr>
+			<tr>
+				<td class="option">string</td>
+				<td>Text to send to G15Composer</td>
+				<td>This text will be parsed and sent to G15Composer for output on your screen. For more on how to format this, see 'man g15composer'.</td>
+				<td>Variables for string (<em>CASE SENSITIVE</em>):
+					<ul>
+						<li>%newline% - inserts newline, use after each command,</li>
+						<li>%textsize% - Refers to size, %nick% - the senders nickname,</li>
+						<li>%channel - the channel,</li>
+						<li>%time% - the time in Hours:Minutes:Seconds,</li>
+						<li>%hours% -- Just what hour it is,</li>
+						<li>%minutes% - How many minutes past the hour it is,</li>
+						<li>%seconds% - How many seconds past the minute it is,</li>
+						<li>%message% - inserts the message,</li>
+						<li>%messagewrapped% - inserts the message wrapped to fit the screen,</li>
+						<li>%textheight% - refers to height.</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="3">size</td>
+				<td>S</td>
+				<td>The text on screen will be small.</td>
+				<td rowspan="3">N/A</td>
+			</tr>
+			<tr>
+				<td>M</td>
+				<td>The text on screen will be medium.</td>
+			</tr>
+			<tr>
+				<td>L</td>
+				<td>The text on screen will be large.</td>
+			</tr>
+			<tr>
+				<td class="option">screenwidth</td>
+				<td>Any Whole Number</td>
+				<td>Width of screen in charachters.</td>
+				<td>You probably want 40 for small, 31 for medium, 20 for large text sizes.</td>
+			</tr>
+			<tr>
+				<td class="option">height</td>
+				<td>Any Whole Number</td>
+				<td>Height of a chrachter in pixels.</td>
+				<td>You probably want 5 for small, 6 for medium, 8 for large text sizes.</td>
+			</tr>
+			<tr>
+				<td class="section" colspan="4">Reaction To Highlights</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">query</td>
+				<td>True</td>
+				<td>When you are queried (PMed), this will be displayed on your G15's screen.</td>
+				<td rowspan="2">If you have a channel name (like: '#channel') in your 'others words to highlight upon' option in your xChat preferences, anything posted in that channel will highlight. You can use this to make all messages in the channel(s) you add to the option in your preferences display on your g15 screen.</td>
+			</tr>
+			<tr>
+				<td>False</td>
+				<td>Queries will not be displayed.</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="5">lights</td>
+				<td>0</td>
+				<td>All the 'M' key lights will flash upon highlight.</td>
+				<td rowspan="5">N/A</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>The first 'M' key light will flash upon highlight.</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>The second 'M' key light will flash upon highlight.</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>The third 'M' key light will flash upon highlight.</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>No 'M' key lights will flash upon highlight.</td>
+			</tr>
+			<tr>
+				<td class="option">lightstime</td>
+				<td>Any Number</td>
+				<td>How long to light up the 'M' keys for when lights (see above) is not 4.</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="section" colspan="4">Clearing The Screen</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">clearafterhighlight</td>
+				<td>True</td>
+				<td>When you are highlighted, the screen will be cleared after clearafterhighlighttime (see below) to clearmode (see below).</td>
+				<td rowspan="2">Use this if you don't want messages to stay on-screen for long periods of time. Mainly for if you don't go AFK much.</td>
+			</tr>
+			<tr>
+				<td>False</td>
+				<td>Highlights will stay on screen till another comes, or you clear it manually.</td>
+			</tr>
+			<tr>
+				<td class="option">clearafterhighlighttime</td>
+				<td>Any Number</td>
+				<td>When you are highlighted, and if clearafterhighlight (see above) the screen will be cleared after the length of time set here to clearmode (see below).</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="4">clearmode</td>
+				<td>animation</td>
+				<td>When the screen is cleared, an animation will be shown.</td>
+				<td rowspan="4">N/A</td>
+			</tr>
+			<tr>
+				<td>text</td>
+				<td>When the screen is cleared, the version text will be shown.</td>
+			</tr>
+			<tr>
+				<td>image</td>
+				<td>When the screen is cleared, an image will be shown.</td>
+			</tr>
+			<tr>
+				<td>blank</td>
+				<td>When the screen is cleared, nothing will be shown.</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">clearanimation</td>
+				<td>currentversion</td>
+				<td>When the screen is cleared, and clearmode (see above) is set to animation, then this version's default animation is displayed.</td>
+				<td rowspan="2">N/A</td>
+			</tr>
+			<tr>
+				<td>Comma-separated list of frames.</td>
+				<td>When the screen is cleared, and clearmode (see above) is set to animation, then each item in the list is loaded as a frame from [xchat directory]/G15H/[item].wbmp - and then this animation is displayed.</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">clearimage</td>
+				<td>currentversion</td>
+				<td>When the screen is cleared, and clearmode (see above) is set to image, then this version's default image is displayed.</td>
+				<td rowspan="2">N/A</td>
+			</tr>
+			<tr>
+				<td>image</td>
+				<td>When the screen is cleared, and clearmode (see above) is set to image, then the image is loaded from [xchat directory]/G15H/[image].wbmp - and then this image is displayed.</td>
+			</tr>
+			<tr>
+				<td class="option">clearanimationspeed</td>
+				<td>Any Number</td>
+				<td>When the screen is cleared, and clearmode (see above) is set to animation, then this is the delay between each frame of the animation.</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="section" colspan="4">Backlight</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">backlight</td>
+				<td>True</td>
+				<td>When you are highlighted, the G15's screen will flash.</td>
+				<td rowspan="2">N/A</td>
+			</tr>
+			<tr>
+				<td>False</td>
+				<td>The screen will not flash.</td>
+			</tr>
+			<tr>
+				<td class="option">backlightnumber</td>
+				<td>Any Whole Number</td>
+				<td>How many times the backlight will flash.</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="option">backlightwait</td>
+				<td>Any Number</td>
+				<td>How long to wait between each flash.</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="3">backlightlevel1</td>
+				<td>0</td>
+				<td>The first part of the flash will mean changing to off.</td>
+				<td rowspan="3">backlightlevel1 being 0 and backlightlevel2 being 2 will mean the backlight will go off then turn on full for each 'flash'. You should use that if you have the backlight on full normally, if you keep it off normally, swap it.</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>The first part of the flash will mean changing to on, but dim.</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>The first part of the flash will mean changing to on full.</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="3">backlightlevel2</td>
+				<td>0</td>
+				<td>The second part of the flash will mean changing to off.</td>
+				<td rowspan="3">backlightlevel1 being 0 and backlightlevel2 being 2 will mean the backlight will go off then turn on full for each 'flash'. You should use that if you have the backlight on full normally, if you keep it off normally, swap it.</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>The second part of the flash will mean changing to on, but dim.</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>The second part of the flash will mean changing to on full.</td>
+			</tr>
+			<tr>
+				<td class="section" colspan="4">G15Composer (Probably more advanced. Not for regular users.)</td>
+			</tr>
+			<tr>
+				<td class="option">path</td>
+				<td>Path To FIFO</td>
+				<td>The path where the FIFO will be made, G15Composer should be listening here.</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">start</td>
+				<td>True</td>
+				<td>When you start the script, G15Composer will be started.</td>
+				<td rowspan="2">N/A</td>
+			</tr>
+			<tr>
+				<td>False</td>
+				<td>When you start the script, G15Composer will <em>not</em> be started.</td>
+			</tr>
+			<tr>
+				<td class="option" rowspan="2">end</td>
+				<td>True</td>
+				<td>When you end the script, G15Composer will be killed.</td>
+				<td rowspan="2">N/A</td>
+			</tr>
+			<tr>
+				<td>False</td>
+				<td>When you end the script, G15Composer will <em>not</em> be killed.</td>
+			</tr>
+		</table>
+	</body>
+</html>

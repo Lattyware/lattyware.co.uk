@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+    <head>
+      {% include head.html %}
+    </head>
+    <body>
+      {% include header.html %}
+
+      {% include nav.html %}
+
+      <main class="page">
+        <div class="title">
+          <h1>{{ page.title }}</h1>
+          <span class="description">{{ page.description }}</span>
+        </div>
+        <section class="content">
+          {{ page.content }}
+        </section>
+      </main>
+
+      {% include footer.html %}
+    </body>
+</html>

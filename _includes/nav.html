@@ -1,0 +1,15 @@
+<nav id="menu">
+  <ul>
+    {% assign menu-items = site.pages | where: "in-menu", "true" | sort: "menu-position" %}
+    {% for item in menu-items %}
+      {% if item.url contains "page" %}
+      {% else %}
+        <li{% if item.url == page.url %} class="current"{% endif %}>
+          <a href="{{ item.url }}" title="{{ item.description }}">
+            <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i> {{ item.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
