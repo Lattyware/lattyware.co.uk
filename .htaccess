@@ -1,28 +1,61 @@
+# Stop bad requests
+<FilesMatch "^.*\.(bak|obj|inc)$">
+Require all denied
+</FilesMatch>
+
+<FilesMatch "^.*~$">
+Require all denied
+</FilesMatch>
+
 RewriteEngine on
 
+# Canonicalize
+RewriteCond %{HTTP_HOST} !^www\.lattyware\.co\.uk$ [NC]
+RewriteCond %{REQUEST_URI} !^/robots.txt$
+RewriteRule ^.*$ https://www\.lattyware\.co\.uk%{REQUEST_URI} [R=301,L]
+
+# Old URL rewrites from old site.
+RewriteRule ^G15H/?$ /projects/G15H [R=301,L]
+RewriteRule ^personal/G15H/?$ /projects/G15H [R=301,L]
+RewriteRule ^keycom.html$ /projects/keycom [R=301,L]
+RewriteRule ^social/?$ /contact/ [R=301,L]
+RewriteRule ^projects/ld23 /projects/asteroidbelt/ [R=301,L]
+
+# Blog redirect from subdomain.
+RewriteCond %{HTTP_HOST} ^blog\.lattyware\.co\.uk$ [NC]
+RewriteRule ^$ https://www.lattyware.co.uk/blog/ [R=301,L]
+
+# Redirect project zips to github releases.
+Redirect 301 /projects/unrpa-1.3.tar.gz https://github.com/Lattyware/unrpa/archive/1.3.tar.gz
+Redirect 301 /projects/unrpa-1.4.zip https://github.com/Lattyware/unrpa/archive/1.4.zip
+Redirect 301 /projects/wordgenerator-1.2.tar.gz https://github.com/Lattyware/wordgenerator/archive/1.2.0.tar.gz
+
 # Old blog post URLs.
-RewriteRule "^/post/132497231296/.*" "/2015/11/03/contention/" [L,R=301]
-RewriteRule "^/post/132103364211/.*" "/2015/10/28/zoombinis/" [L,R=301]
-RewriteRule "^/post/96021963401/.*" "/2014/08/28/the-walking-dead-season-2/" [L,R=301]
-RewriteRule "^/post/95681152011/.*" "/2014/08/25/we-don't-need-no-education/" [L,R=301]
-RewriteRule "^/post/93792267381/.*" "/2014/08/04/javadocs-are-not-documentation/" [L,R=301]
-RewriteRule "^/post/71307459687/.*" "/2013/12/27/gone-home/" [L,R=301]
-RewriteRule "^/post/68284933908/.*" "/2013/11/27/on-evolution/" [L,R=301]
-RewriteRule "^/post/56908470442/.*" "/2013/11/27/nexus-10/" [L,R=301]
-RewriteRule "^/post/55808255997/.*" "/2013/07/18/steam-trading-cards/" [L,R=301]
-RewriteRule "^/post/51514754291/.*" "/2013/05/28/get-over-yourself-games-industry/" [L,R=301]
-RewriteRule "^/post/35154406385/.*" "/2012/11/06/halo-4/" [L,R=301]
-RewriteRule "^/post/29793030567/.*" "/2012/08/20/mark-and-recapture/" [L,R=301]
-RewriteRule "^/post/25430763653/.*" "/2012/06/19/triple-monitor/" [L,R=301]
-RewriteRule "^/post/25388542947/.*" "/2012/06/18/logic/" [L,R=301]
-RewriteRule "^/post/25330506091/.*" "/2012/06/18/everyone-is-a-gamer/" [L,R=301]
-RewriteRule "^/post/22202321392/.*" "/2012/05/01/the-avengers/" [L,R=301]
-RewriteRule "^/post/20857404092/.*" "/2012/04/10/generating-words-at-random/" [L,R=301]
-RewriteRule "^/post/20310838774/.*" "/2012/04/01/donor-card/" [L,R=301]
-RewriteRule "^/post/19076479043/.*" "/2012/03/10/mass-effect-3/" [L,R=301]
-RewriteRule "^/post/18553381735/.*" "/2012/03/01/teaching-compsci-code-reuse/" [L,R=301]
-RewriteRule "^/post/16653006946/.*" "/2012/01/28/ibm/" [L,R=301]
-RewriteRule "^/post/14743456745/.*" "/2011/12/24/skyrim/" [L,R=301]
-RewriteRule "^/post/13747437166/.*" "/2011/04/27/the-alternative-vote/" [L,R=301]
-RewriteRule "^/post/13747269145/.*" "/2011/03/01/unrpa-extracting-and-politics/" [L,R=301]
-RewriteRule "^/post/13748143648/.*" "/2011/02/01/injecting-text-with-css/" [L,R=301]
+RewriteRule ^post/132497231296.* /2015/11/03/contention/ [L,R=301]
+RewriteRule ^post/132103364211.* /2015/10/28/zoombinis/ [L,R=301]
+RewriteRule ^post/96021963401.* /2014/08/28/the-walking-dead-season-2/ [L,R=301]
+RewriteRule ^post/95681152011.* /2014/08/25/we-don't-need-no-education/ [L,R=301]
+RewriteRule ^post/93792267381.* /2014/08/04/javadocs-are-not-documentation/ [L,R=301]
+RewriteRule ^post/71307459687.* /2013/12/27/gone-home/ [L,R=301]
+RewriteRule ^post/68284933908.* /2013/11/27/on-evolution/ [L,R=301]
+RewriteRule ^post/56908470442.* /2013/11/27/nexus-10/ [L,R=301]
+RewriteRule ^post/55808255997.* /2013/07/18/steam-trading-cards/ [L,R=301]
+RewriteRule ^post/51514754291.* /2013/05/28/get-over-yourself-games-industry/ [L,R=301]
+RewriteRule ^post/35154406385.* /2012/11/06/halo-4/ [L,R=301]
+RewriteRule ^post/29793030567.* /2012/08/20/mark-and-recapture/ [L,R=301]
+RewriteRule ^post/25430763653.* /2012/06/19/triple-monitor/ [L,R=301]
+RewriteRule ^post/25388542947.* /2012/06/18/logic/ [L,R=301]
+RewriteRule ^post/25330506091.* /2012/06/18/everyone-is-a-gamer/ [L,R=301]
+RewriteRule ^post/22202321392.* /2012/05/01/the-avengers/ [L,R=301]
+RewriteRule ^post/20857404092.* /2012/04/10/generating-words-at-random/ [L,R=301]
+RewriteRule ^post/20310838774.* /2012/04/01/donor-card/ [L,R=301]
+RewriteRule ^post/19076479043.* /2012/03/10/mass-effect-3/ [L,R=301]
+RewriteRule ^post/18553381735.* /2012/03/01/teaching-compsci-code-reuse/ [L,R=301]
+RewriteRule ^post/16653006946.* /2012/01/28/ibm/ [L,R=301]
+RewriteRule ^post/14743456745.* /2011/12/24/skyrim/ [L,R=301]
+RewriteRule ^post/13747437166.* /2011/04/27/the-alternative-vote/ [L,R=301]
+RewriteRule ^post/13747269145.* /2011/03/01/unrpa-extracting-and-politics/ [L,R=301]
+RewriteRule ^post/13748143648.* /2011/02/01/injecting-text-with-css/ [L,R=301]
+
+# 404s
+ErrorDocument 404 /404/

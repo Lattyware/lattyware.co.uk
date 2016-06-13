@@ -39,23 +39,23 @@ h1
 body
   background-color: $background-color
   box-shadow: 5px 5px rgba(0, 0, 0, 0.2)
-  width: 800px
+  max-width: 800px
   padding: $general-spacing
   margin: $general-spacing auto $general-spacing auto
 
 header
   h1
-    width: 510px
+    max-width: 510px
     margin: 0px auto 0px auto
     padding: 0px 0px 10px 0px
 
     img
-      width: 510px
-      height: 135px
+      width: 100%
 
 nav#menu ul
   display: flex
   justify-content: space-around
+  flex-wrap: wrap
   list-style: none
   margin: 0px
   padding: $general-spacing 0px $general-spacing 0px
@@ -63,6 +63,7 @@ nav#menu ul
   border-bottom: 1px solid $line-color
 
   li
+    margin: 0px 5px 0px 5px
     display: inline
 
     &.current
@@ -103,6 +104,7 @@ main
           font-size: 1.2em
 
         time
+          flex-shrink: 0
           font-size: 0.8em
 
       p
