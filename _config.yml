@@ -21,3 +21,7 @@ gems:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-auto-image
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
