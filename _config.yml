@@ -15,6 +15,9 @@ paginate_path: "/blog/page:num/"
 
 permalink: pretty
 
+image: /images/logo.png
+
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-auto-image

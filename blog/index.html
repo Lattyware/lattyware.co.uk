@@ -6,6 +6,11 @@ icon: pencil
 in-menu: true
 menu-position: 1
 ---
+
+{% assign before_last = paginator.total_pages | minus: 1 %}
+{% assign lower = paginator.page | minus: 2 %}
+{% assign upper = paginator.page | plus: 2 %}
+
 <!doctype html>
 <html lang="{{ site.language }}">
     <head>
@@ -19,6 +24,53 @@ menu-position: 1
       {% include nav.html %}
 
       <main class="page">
+        <script type="application/ld+json">
+          {
+            "@context": "http://schema.org",
+            "@type": "Blog",
+            "url": "{{ site.url }}{{ site.baseurl }}/blog/",
+            "author": {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "email": "mailto:gareth@lattyware.co.uk",
+              "image": "/images/me.jpg",
+              "name": "Gareth Latty",
+              "url": "{{ site.url }}"
+            }
+          }
+        </script>
+        <script type="application/ld+json">
+          {
+            "@context": "http://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+              {% for post in paginator.posts %}
+                {
+                  "@type": "ListItem",
+                  "position": {{ forloop.index }},
+                  "url": "{{ post.url }}"
+                }{% if forloop.last %}{% else %},{% endif %}
+              {% endfor %}
+            ]
+          }
+        </script>
+        <script type="application/ld+json">
+          {
+            "@context": "http://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@id": "{{ site.url }}{{ site.baseurl }}/blog/",
+                  "name": "Blog"
+                }
+              }
+            ]
+          }
+        </script>
+
         <div class="title">
           <h1>{{ page.title }}</h1>
           <span class="description">{{ page.description }}</span>
@@ -50,10 +102,7 @@ menu-position: 1
               {% else %}
                 <a href="/blog/" class="page-link">1</a>
               {% endif %}
-              {% assign before_last = paginator.total_pages | minus: 1 %}
               {% for i in (2..before_last) %}
-                {% assign lower = paginator.page | minus: 2 %}
-                {% assign upper = paginator.page | plus: 2 %}
                 {% if i >= lower and i <= upper %}
                   {% if paginator.page == i %}
                     <span class="page-link">{{ i }}</span>

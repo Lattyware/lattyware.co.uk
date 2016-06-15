@@ -9,6 +9,40 @@ in-menu: true
 menu-position: 0
 ---
 
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Lattyware",
+    "url": "{{ site.url }}{{ site.baseurl }}"
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "email": "mailto:gareth@lattyware.co.uk",
+    "image": "/images/me.jpg",
+    "jobTitle": "Software Developer",
+    "name": "Gareth Latty",
+    "url": "{{ site.url }}{{ site.baseurl }}",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of Leicester",
+      "url": "https://le.ac.uk/"
+    },
+    "sameAs": [
+      "https://twitter.com/Lattyware",
+      "https://www.facebook.com/lattyware",
+      "https://www.linkedin.com/in/lattyware",
+      "https://plus.google.com/+GarethLatty",
+      "https://www.youtube.com/c/lattyware",
+      "https://github.com/Lattyware"
+    ]
+  }
+</script>
+
 My name is Gareth Latty, and I'm a software developer - writing code to create software, websites and games.
 
 I have a first-class honours degree in Computer Science from [the University of Leicester][uol]. I am currently working at [IBM][ibm] in Cambridge, as a developer in Intelligence Analysis.

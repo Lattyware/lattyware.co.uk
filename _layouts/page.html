@@ -8,6 +8,23 @@
 
       {% include nav.html %}
 
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
+                "name": {{ page.title | jsonify }}
+              }
+            }
+          ]
+        }
+      </script>
+
       <main class="page">
         <div class="title">
           <h1>{{ page.title }}</h1>
