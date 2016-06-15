@@ -14,10 +14,7 @@ RewriteCond %{HTTP_HOST} ^blog\.lattyware\.co\.uk$ [NC]
 RewriteRule ^(.*)$ https://www.lattyware.co.uk/blog/$1 [R=301,L]
 
 # Canonicalize
-RewriteCond %{HTTP_HOST} !^www\.lattyware\.co\.uk$ [NC,OR]
-RewriteCond %{HTTPS} ==off [OR]
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{REQUEST_URI} !^/robots.txt$
+RewriteCond %{HTTP_HOST} !^www\.lattyware\.co\.uk$ [NC]
 RewriteRule ^(.*)$ https://www\.lattyware\.co\.uk/$1 [R=301,L]
 
 # Old URL rewrites from old site.
@@ -25,6 +22,7 @@ RewriteRule ^G15H/?$ /projects/G15H [R=301,L]
 RewriteRule ^personal/G15H/?$ /projects/G15H [R=301,L]
 RewriteRule ^keycom.html$ /projects/keycom [R=301,L]
 RewriteRule ^social/?$ /contact/ [R=301,L]
+RewriteRule ^projects/?$ /code/ [R=301,L]
 RewriteRule ^projects/ld23 /projects/asteroidbelt/ [R=301,L]
 
 # Redirect project zips to github releases.

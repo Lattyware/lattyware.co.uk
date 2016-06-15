@@ -6,7 +6,7 @@
       {% else %}
         <li{% if item.url == page.url %} class="current"{% endif %}>
           <a href="{{ item.url }}" title="{{ item.description }}">
-            <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i> {{ item.title }}
+            <i class="fa fa-fw fa-{{ item.icon }}" aria-hidden="true"></i> {{ item.title }}
           </a>
         </li>
       {% endif %}

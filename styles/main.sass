@@ -2,15 +2,10 @@
 ---
 @charset "utf-8"
 
-$background-color: #1f1f1f
-$foreground-color: #dddddd
-$accent-color: #ac44b7
-$link-color: #565ebf
-$line-color: lighten($background-color, 10%)
-
-$general-spacing: 20px
-
+@import "vars"
 @import "source-sans-pro"
+@import "darcula"
+@import "font-awesome"
 
 html.light
   color: $background-color
@@ -160,6 +155,7 @@ main
     text-align: center
 
 #style-button
+  display: block
   position: fixed
   top: 0px
   right: 0px
