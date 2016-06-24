@@ -2,7 +2,7 @@
 layout: post
 date: 2012-04-01T00:00:00+00:00
 title: Donor Card
-description:
+description: Something that hopefully won't see use any time soon.
 ---
 
 Today I received my donor card. Hopefully something that will go unused, but in the case something happens to me, I get to do something pretty awesome for someone else without any effort on my part. Cool stuff.

@@ -72,8 +72,8 @@ menu-position: 1
         </script>
 
         <div class="title">
-          <h1>{{ page.title }}</h1>
-          <span class="description">{{ page.description }}</span>
+          <h1>{{ page.title | smartify }}</h1>
+          <span class="description">{{ page.description | smartify }}</span>
           <a class="subscribe-link" href="/blog/feed.xml" rel="alternate" type="application/rss+xml" title="{{ site.title }}">
             <i class="fa fa-fw fa-rss" aria-hidden="true"></i> Subscribe
           </a>
@@ -83,7 +83,7 @@ menu-position: 1
             {% for post in paginator.posts %}
               <li class="summary">
                 <div class="about">
-                  <a href="{{ post.url }}" title="{{ post.description }}">{{ post.title }}</a>
+                  <a href="{{ post.url }}" title="{{ post.description | smartify }}">{{ post.title | smartify }}</a>
                   <time datetime="{{ post.date | date_to_xmlschema }}" class="date">{{ post.date | date_to_string }}</time>
                 </div>
                 {{ post.excerpt }}
