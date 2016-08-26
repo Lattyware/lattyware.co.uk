@@ -12,7 +12,7 @@ menu-position: 1
 {% assign upper = paginator.page | plus: 2 %}
 
 <!doctype html>
-<html lang="{{ site.language }}">
+<html lang="{{ site.language }}-{{ site.country }}">
     <head>
       {% include head.html %}
 
@@ -92,7 +92,7 @@ menu-position: 1
           </ol>
           <div class="pagination">
             {% if paginator.previous_page %}
-              <a href="{{ paginator.previous_page_path }}" class="newer" title="Newer posts."><i class="fa fa-fw fa-backward" aria-hidden="true"></i></a>
+              <a href="{{ paginator.previous_page_path }}" rel="prev" class="newer" title="Newer posts."><i class="fa fa-fw fa-backward" aria-hidden="true"></i></a>
             {% else %}
               <span title="There are no newer posts."><i class="fa fa-fw fa-backward" aria-hidden="true"></i></span>
             {% endif %}
@@ -120,7 +120,7 @@ menu-position: 1
               {% endif %}
             </div>
             {% if paginator.next_page %}
-              <a href="{{ paginator.next_page_path }}" class="older" title="Older posts."><i class="fa fa-fw fa-forward" aria-hidden="true"></i></a>
+              <a href="{{ paginator.next_page_path }}" rel="next" class="older" title="Older posts."><i class="fa fa-fw fa-forward" aria-hidden="true"></i></a>
             {% else %}
               <span title="There are no older posts."><i class="fa fa-fw fa-forward" aria-hidden="true"></i></span>
             {% endif %}

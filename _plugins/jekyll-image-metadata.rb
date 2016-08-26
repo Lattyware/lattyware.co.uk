@@ -15,7 +15,7 @@ module Jekyll
       site = context.registers[:site]
       path = File.join(site.source, image)
       result = Dimensions.dimensions(path)[@dimension]
-      "#{result}px"
+      "#{result}"
     end
   end
 end

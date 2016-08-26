@@ -24,9 +24,14 @@ menu-position: 0
     "@type": "Person",
     "email": "mailto:gareth@lattyware.co.uk",
     "image": "/images/me.jpg",
-    "jobTitle": "Software Developer",
+    "jobTitle": "Game Developer",
     "name": "Gareth Latty",
     "url": "{{ site.url }}{{ site.baseurl }}",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Reread Games",
+      "url": "https://www.rereadgames.com"
+    },
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "University of Leicester",
@@ -45,6 +50,8 @@ menu-position: 0
 
 My name is Gareth Latty, and I'm a software developer - writing code to create software, websites and games.
 
+I am currently a founding partner and developer at [Reread Games][reread].
+
 I have a first-class honours degree in Computer Science from [the University of Leicester][uol]. I am currently working at [IBM][ibm] in Cambridge, as a developer in Intelligence Analysis.
 
 I am interested in programming languages and language design, and enjoy working with a range of technologies. I'm a big fan of the [Python][python] language, which tends to be the focus of a lot of [the content I produce][code].
@@ -57,3 +64,4 @@ I am particularly interested in issues related to freedoms and technology. I am 
 [python]: http://www.python.org/
 [uol]: http://www2.le.ac.uk/
 [ibm]: http://www.ibm.com/uk/en/
+[reread]: https://www.rereadgames.com

@@ -1,7 +1,8 @@
 title: Lattyware
 author: Gareth Latty
 email: gareth@lattyware.co.uk
-language: en-GB
+language: en
+country: GB
 url: "https://www.lattyware.co.uk"
 baseurl: ""
 
@@ -15,7 +16,7 @@ paginate_path: "/blog/page:num/"
 
 permalink: pretty
 
-image: /images/logo.png
+image: /images/me.jpg
 
 gems:
   - jekyll-paginate

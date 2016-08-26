@@ -7,12 +7,6 @@
 @import "darcula"
 @import "font-awesome"
 
-html.light
-  color: $background-color
-
-  body
-    background-color: #ffffff
-
 html
   font-family: "Source Sans Pro", sans-serif
   background-color: #333333
@@ -20,6 +14,12 @@ html
   color: $foreground-color
   font-size: 1.6em
   font-weight: 300
+
+  &.color-swap
+    color: $background-color
+
+    body
+      background-color: $foreground-color
 
 a
   color: $link-color

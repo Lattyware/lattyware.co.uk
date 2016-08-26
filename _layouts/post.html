@@ -1,25 +1,28 @@
 <!doctype html>
-<html lang="{{ site.language }}">
+<html lang="{{ site.language }}-{{ site.country }}">
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
       {% include head.html %}
 
       <link href="/blog/feed.xml" rel="home" type="application/rss+xml" title="{{ site.title }}" />
 
       <meta property="og:type" content="article" />
+      <meta property="og:locale" content="{{ site.language }}_{{ site.country }}" />
+      <meta property="og:site_name" content="Lattyware" />
       <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
       <meta property="og:title" content="{{ page.title | smartify}}" />
-      <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
+      <meta property="og:article:author" content="Gareth Latty" />
       <meta property="og:description" content="{{ page.description | smartify}}" />
-      <meta property="og:site_name" content="Lattyware" />
-      <meta property="og:locale" content="{{ site.language }}" />
-      <meta property="article:published_time" content="{{ page.date }}" />
+      <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image }}" />
+      <meta property="og:image:width" content="{% image_width page.image %}" />
+      <meta property="og:image:height" content="{% image_height page.image %}" />
+      <meta property="og:article:published_time" content="{{ page.date }}" />
     </head>
     <body>
       {% include header.html %}
 
       {% include nav.html %}
 
-      <button id="style-button" onclick="document.documentElement.classList.toggle('light');" type="button">
+      <button id="style-button" onclick="document.documentElement.classList.toggle('color-swap');" type="button">
         Change Colours
       </button>
 
@@ -55,8 +58,8 @@
               "image": {
                 "@type": "ImageObject",
                 "url": "{{ site.url }}{{ site.baseurl }}{{ page.image }}",
-                "width": "{% image_width page.image %}",
-                "height": "{% image_height page.image %}"
+                "width": "{% image_width page.image %}px",
+                "height": "{% image_height page.image %}px"
               },
               "dateModified": "{{ page.date }}",
               "mainEntityOfPage": "{{ site.baseurl }}{{ page.url }}"
