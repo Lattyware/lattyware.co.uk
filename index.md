@@ -52,7 +52,7 @@ My name is Gareth Latty, and I'm a software developer - writing code to create s
 
 I am currently a founding partner and developer at [Reread Games][reread].
 
-I have a first-class honours degree in Computer Science from [the University of Leicester][uol]. I am currently working at [IBM][ibm] in Cambridge, as a developer in Intelligence Analysis.
+I have a first-class honours degree in Computer Science from [the University of Leicester][uol].
 
 I am interested in programming languages and language design, and enjoy working with a range of technologies. I'm a big fan of the [Python][python] language, which tends to be the focus of a lot of [the content I produce][code].
 
